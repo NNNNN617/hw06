@@ -1,0 +1,563 @@
+<style>
+    /* 根部變數定義：黑紫色系主題 (Dark Cyber / Modern Noir 氣息) */
+    :root {
+        --bg-color: #0b0914;            /* 極深黑紫背景 */
+        --card-bg: #151122;             /* 卡片區塊深紫灰 */
+        --card-hover: #1e1733;          /* 卡片懸停時的色彩 */
+        --primary-color: #a855f7;       /* 亮紫色 (主色調) */
+        --primary-hover: #c084fc;       /* 淺亮紫 (懸停) */
+        --secondary-color: #ec4899;     /* 霓虹粉紫 (點綴) */
+        --text-color: #e2e8f0;          /* 淺灰白內文 (暗色模式護眼) */
+        --text-muted: #94a3b8;          /* 次要文字灰藍 */
+        --border-color: #2e2347;        /* 深紫色框線 */
+        --shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        --transition: all 0.3s ease;
+    }
+
+    /* 基礎重置與排版設定 */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        line-height: 1.8;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 頁首樣式：黑紫漸層與霓虹點綴 */
+    header#top {
+        background: linear-gradient(135deg, #0f0c1b 0%, #1a102f 50%, #2b1042 100%);
+        color: #ffffff;
+        padding: 4.5rem 2rem 3.5rem 2rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        position: relative;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    header#top h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+        letter-spacing: 1px;
+        background: linear-gradient(to right, #ffffff, #d8b4fe, #f472b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    header#top p {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-muted);
+    }
+
+    header#top strong {
+        color: var(--text-color);
+    }
+
+    header#top mark {
+        background-color: rgba(168, 85, 247, 0.2);
+        color: #e879f9;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px solid rgba(168, 85, 247, 0.4);
+    }
+
+    /* 導覽目錄 (Nav) 樣式：置頂浮動卡片 */
+    nav[aria-label="報導目錄"] {
+        max-width: 900px;
+        margin: -2rem auto 2rem auto;
+        background: var(--card-bg);
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        position: relative;
+        z-index: 10;
+        border: 1px solid var(--border-color);
+        border-top: 4px solid var(--primary-color);
+    }
+
+    nav[aria-label="報導目錄"] h2 {
+        font-size: 1.25rem;
+        color: var(--primary-hover);
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+    }
+
+    nav[aria-label="報導目錄"] ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.75rem;
+        list-style: none;
+    }
+
+    nav[aria-label="報導目錄"] a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        display: block;
+        background-color: #1a1528;
+        border: 1px solid var(--border-color);
+        transition: var(--transition);
+    }
+
+    nav[aria-label="報導目錄"] a:hover {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    /* 主要內容排版 */
+    main#main-content {
+        max-width: 900px;
+        margin: 0 auto 4rem auto;
+        padding: 0 1.5rem;
+    }
+
+    article {
+        background: transparent;
+    }
+
+    section {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: var(--transition);
+    }
+
+    section:hover {
+        background-color: var(--card-hover);
+        border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    section h2 {
+        font-size: 1.75rem;
+        color: var(--primary-hover);
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        border-left: 5px solid var(--secondary-color);
+        padding-left: 0.75rem;
+    }
+
+    section h3 {
+        font-size: 1.25rem;
+        color: #f1f5f9;
+        margin: 1.5rem 0 0.75rem 0;
+    }
+
+    section p {
+        margin-bottom: 1.25rem;
+        text-align: justify;
+        color: var(--text-color);
+    }
+
+    strong {
+        color: #ffffff;
+    }
+
+    /* 列表樣式優化 */
+    section ul, section ol {
+        margin: 1rem 0 1.5rem 1.5rem;
+        color: var(--text-color);
+    }
+
+    section li {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+    }
+
+    /* 表格樣式優化 */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        background-color: #120e21;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+    }
+
+    caption {
+        font-weight: bold;
+        color: var(--primary-hover);
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    th, td {
+        padding: 0.95rem 1.25rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color);
+    }
+
+    thead th {
+        background-color: #1f1635;
+        color: var(--primary-hover);
+        font-weight: 600;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    tbody tr:hover {
+        background-color: rgba(168, 85, 247, 0.05);
+    }
+
+    tbody th[scope="row"] {
+        background-color: #19122c;
+        color: #d8b4fe;
+        width: 25%;
+    }
+
+    /* 媒體呈現（圖片、影片、地圖） */
+    figure {
+        margin: 1.5rem 0;
+        text-align: center;
+        background: #100c1c;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    iframe {
+        max-width: 100%;
+        border-radius: 6px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+    }
+
+    figcaption a {
+        color: var(--primary-hover);
+    }
+
+    /* 參觀小提醒 (Aside & Details) */
+    aside#tips {
+        background: linear-gradient(135deg, #151122 0%, #1f1432 100%);
+        border-left: 5px solid var(--primary-color);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    aside#tips h2 {
+        border-left: none;
+        padding-left: 0;
+        color: var(--primary-hover);
+    }
+
+    details {
+        background: #100c1c;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        margin-top: 1rem;
+    }
+
+    summary {
+        font-weight: bold;
+        color: var(--primary-hover);
+        cursor: pointer;
+        outline: none;
+        font-size: 1.05rem;
+    }
+
+    details ul {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 頁尾樣式 */
+    footer {
+        background-color: #07050f;
+        color: var(--text-muted);
+        text-align: center;
+        padding: 3rem 1.5rem;
+        margin-top: 4rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    footer strong {
+        color: #ffffff;
+        font-size: 1.1rem;
+    }
+
+    footer p {
+        margin-bottom: 0.5rem;
+    }
+
+    footer a {
+        color: var(--primary-hover);
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: rgba(168, 85, 247, 0.1);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 6px;
+        transition: var(--transition);
+    }
+
+    footer a:hover {
+        background-color: var(--primary-color);
+        color: #ffffff;
+    }
+
+    hr {
+        display: none; /* 使用 CSS 卡片與間距區隔取代 hr */
+    }
+
+    /* 響應式微調 */
+    @media (max-width: 768px) {
+        header#top {
+            padding: 3rem 1rem 2rem 1rem;
+        }
+        header#top h1 {
+            font-size: 2rem;
+        }
+        section {
+            padding: 1.5rem;
+        }
+        nav[aria-label="報導目錄"] {
+            margin: -1.5rem 1rem 1.5rem 1rem;
+            padding: 1rem;
+        }
+    }
+</style>
+
+
+
+<header id="top">
+    <h1>台中洲際棒球場：城市裡的棒球熱情</h1>
+    <p><small>城市地標 · 國際賽事 · 職棒主場</small></p>
+    <p><strong>從國際賽事到職棒主場，一起認識台中重要的棒球地標。</strong></p>
+    <p>本期焦點：<mark>棒球縫線造型與美式球場風格</mark>，從球場報導延伸到位置地圖。</p>
+    <p>作者：D1243359 高銘鴻｜報導整理日期：<time datetime="2026-10-14">2026 年 10 月 21 日</time></p>
+    <p><small>本文為資料整理型教學報導，非現場採訪紀錄。</small></p>
+</header>
+
+
+<nav aria-label="報導目錄">
+    <h2>報導目錄</h2>
+    <ul>
+        <li><a href="#intro">球場簡介</a></li>
+        <li><a href="#highlights">球場特色與參觀重點</a></li>
+        <li><a href="#table">球場資料比較表</a></li>
+        <li><a href="#photo">洲際棒球場照片</a></li>
+        <li><a href="#video">影音報導</a></li>
+        <li><a href="#map">位置地圖</a></li>
+        <li><a href="#tips">參觀小提醒</a></li>
+        <li><a href="#sources">資料來源</a></li>
+    </ul>
+</nav>
+
+
+<main id="main-content">
+    <article aria-label="台中洲際棒球場專題報導">
+        
+        <section id="intro">
+            <h2>一、球場簡介</h2>
+            <p>
+                台中洲際棒球場位於台中市北屯區，
+                是台中市重要的棒球運動場館，也是台灣舉辦國際級棒球賽事的重要場地之一。
+                球場於 <strong>2006 年完工</strong>，
+                位於崇德路與環中路口，採用美式風格作為球場設計概念，
+                看台視野較為開闊，周邊也保有較大的場地空間。
+            </p>
+            <p>
+                洲際棒球場最具辨識度的特色之一，
+                是球場上方以<strong>棒球縫線</strong>為設計概念的景觀造型，
+                使球場除了提供比賽使用之外，也成為台中的棒球地標。
+            </p>
+            <p>
+                洲際棒球場曾舉辦多項國際棒球賽事，
+                也是國內職業棒球與國際棒球活動的重要場地。
+                對喜歡棒球的球迷來說，
+                到洲際棒球場看球不只是觀看比賽，
+                也是感受台中棒球文化的一種方式。
+            </p>
+            <p><strong>球場地址：</strong>台中市北屯區崇德路三段 835 號。<br><strong>球場位置：</strong>崇德路與環中路口附近。</p>
+        </section>
+
+        <section id="highlights">
+            <h2>二、球場特色與參觀重點</h2>
+            <h3>值得留意的三個特色</h3>
+            <ul>
+                <li><strong>國際標準球場：</strong>洲際棒球場是台灣重要的國際級棒球比賽場地之一，曾舉辦多項國際棒球賽事。</li>
+                <li><strong>美式球場風格：</strong>球場以美式風格為設計架構，看台視野開闊，周邊腹地也較為寬廣。</li>
+                <li><strong>棒球縫線造型：</strong>球場上方的景觀設計以棒球縫線為概念，成為洲際棒球場具有代表性的建築特色。</li>
+            </ul>
+
+            <h3>建議參觀順序</h3>
+            <p>以下是本報導規劃的參觀建議，並非官方指定路線。</p>
+            <ol>
+                <li>抵達球場後，先觀察球場外觀與具有棒球縫線意象的屋頂設計。</li>
+                <li>進入球場後，可以觀察球場看台、內野與外野的空間配置。</li>
+                <li>若當日有棒球賽事，可以透過現場比賽了解職業棒球的觀賽文化。</li>
+                <li>離開前可以參觀球場周邊的洲際棒球文創園區，認識棒球與休閒活動結合的城市空間。</li>
+            </ol>
+        </section>
+
+        <section id="table">
+            <h2>三、球場資料比較表</h2>
+            <table>
+                <caption>台中洲際棒球場的基本資料與特色</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">資料項目</th>
+                        <th scope="col">內容</th>
+                        <th scope="col">觀察重點</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">完工年份</th>
+                        <td>2006 年</td>
+                        <td>台中重要的國際級棒球場館</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">球場地址</th>
+                        <td>台中市北屯區崇德路三段 835 號</td>
+                        <td>位於崇德路與環中路口附近</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">左外野</th>
+                        <td>325 英呎</td>
+                        <td>觀察球場外野空間配置</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">中外野</th>
+                        <td>400 英呎</td>
+                        <td>觀察中外野距離與球場尺度</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">右外野</th>
+                        <td>325 英呎</td>
+                        <td>與左外野距離相同</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">觀眾席</th>
+                        <td>約兩萬席</td>
+                        <td>適合舉辦大型棒球賽事</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">主要特色</th>
+                        <td>美式球場風格、棒球縫線造型</td>
+                        <td>具有辨識度的球場建築設計</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+                <section id="photo">
+            <h2>四、洲際棒球場照片</h2>
+            <figure>
+                <img
+                    src="https://www.taichung.gov.tw/media/904410/%E6%B4%B2%E9%9A%9B%E6%A3%92%E7%90%83%E5%A0%B4.jpg"
+                    alt="台中洲際棒球場外觀"
+                    width="480">
+                <figcaption>
+                    台中洲際棒球場外觀。<br>
+                    圖片來源：<a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/149" target="_blank" rel="noopener noreferrer">臺中市觀光旅遊網：臺中市洲際棒球場</a>。
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="video">
+            <h2>五、影音報導</h2>
+            <p>透過下方影片認識台中洲際棒球場的外觀與周邊環境，再比較影片畫面與本文介紹的球場特色。</p>
+            <figure>
+                <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/5GOttCk9z54" 
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen></iframe>
+                <figcaption>影片：空拍台中 洲際棒球場 漢神洲際百貨。</figcaption>
+            </figure>
+            <p><a href="https://www.youtube.com/watch?v=5GOttCk9z54" target="_blank" rel="noopener noreferrer">在 YouTube 觀看台中洲際棒球場空拍影片（另開分頁）</a></p>
+            <p><small>影片為外部作者發布的球場介紹，實際場地狀況請以官方最新資訊為準。</small></p>
+        </section>
+
+        <section id="map">
+            <h2>六、位置地圖：找到洲際棒球場</h2>
+            <p>台中洲際棒球場位於台中市北屯區，地址為<strong>崇德路三段 835 號</strong>（崇德路與環中路口附近）。
+                下方地圖標示球場位置，方便讀者對照周邊交通與街道。</p>
+            <figure style="background: transparent; border: none; padding: 0;">
+                <iframe
+                    src="https://maps.google.com/maps?q=24.1994,120.6853&amp;z=16&amp;output=embed"
+                    width="100%"
+                    height="360"
+                    title="台中洲際棒球場位置 Google 地圖"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </figure>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E4%B8%AD%E6%B4%B2%E9%9A%9B%E6%A3%92%E7%90%83%E5%A0%B4" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟台中洲際棒球場（另開分頁）</a></p>
+            <p><small>位置查詢由 Google 地圖提供；抵達後請依現場指標與售票口指引為主。</small></p>
+        </section>
+
+        <aside id="tips" aria-labelledby="tips-title">
+            <h2 id="tips-title">參觀小提醒</h2>
+            <details open>
+                <summary>球場觀賽與參觀時，記得這三件事</summary>
+                <ul>
+                    <li>戶外球場日照較強，建議依天氣準備防曬用品或雨具。</li>
+                    <li>進入球場與周邊文創園區請保持環境整潔，遵守場館規範。</li>
+                    <li>以文字或照片記錄觀察；若寫入報導，區分現場觀察與引用資料。</li>
+                </ul>
+            </details>
+        </aside>
+
+        <section id="sources">
+            <h2>七、資料來源</h2>
+            <p>本報導依下列資料整理，部分參觀順序與觀察建議由示範作者規劃。</p>
+            <ul>
+                <li><a href="https://www.taichung.gov.tw/2266137/2266304/2266421/2280951" target="_blank" rel="noopener noreferrer">臺中市政府：世界棒球經典賽在臺中－球場介紹</a></li>
+                <li><a href="https://www.taichung.gov.tw/2280555/post" target="_blank" rel="noopener noreferrer">臺中市政府：洲際棒球場交通資訊</a></li>
+                <li><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/149" target="_blank" rel="noopener noreferrer">臺中市觀光旅遊網：臺中市洲際棒球場</a></li>
+                <li><a href="https://www.youtube.com/watch?v=5GOttCk9z54" target="_blank" rel="noopener noreferrer">YouTube：空拍台中 洲際棒球場 漢神洲際百貨</a></li>
+            </ul>
+            <p><small>資料整理日期：2026 年 10 月 21 日。</small></p>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p><strong>第五次作業｜台中洲際棒球場報導</strong></p>
+    <p><small>作者：D1243359 高銘鴻 · 更新日期：2026 年 10 月 21 日</small></p>
+    <p><small>文字依來源整理；照片與影片權利屬原作者。</small></p>
+    <p><a href="#top">回到頁首</a></p>
+</footer>
